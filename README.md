@@ -8,12 +8,19 @@ If the heartbeat to docker fail will send a message to SNS, and a lambda functio
 
 # Terraform code exectuion
 
+Set AWS environment variables:
+```
 export AWS_ACCESS_KEY_ID=<accesskey>
 export AWS_SECRET_ACCESS_KEY=<secret>
 export AWS_DEFAULT_REGION=<region>
 
 export TF_VAR_aws_access_key=$AWS_ACCESS_KEY_ID
 export TF_VAR_aws_secret_key=$AWS_SECRET_ACCESS_KEY
+```
 
+
+```
 cd terraform
-bash ./terraformapply.sh
+terraform plan
+bash ./terraformapply.sh # in the shell script we generate a zip with the lambda package
+```
